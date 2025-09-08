@@ -1,11 +1,53 @@
-.good-luck {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.home-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
 
-    p {
-        font-size: 1.1rem;
-    }
+.side-menu {
+  min-width: 240px;
+  max-width: 260px;
+  background: #fafafa;
+  padding: 24px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  height: fit-content;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.event-list {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.side-menu .mat-mdc-select {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.side-menu .actionButton {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+} 
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.event-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }

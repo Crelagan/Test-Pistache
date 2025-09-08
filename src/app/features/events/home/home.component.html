@@ -1,9 +1,60 @@
-<div class="good-luck">
-  <h1>Bienvenue dans ce mini-projet</h1>
-  <p>
-    Merci de votre intérêt. Avant de commencer, merci de bien lire le fichier
-    <strong>README.md</strong> à la racine du projet. Vous y trouverez toutes les
-    instructions nécessaires.
-  </p>
-  <p>Bonne chance !</p>
+<div class="home-layout">
+  <aside class="side-menu">
+    <h3>Filtrer & Trier</h3>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Filtrer par lieu</mat-label>
+      <input matInput [(ngModel)]="filterCity" placeholder="Ville">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Trier par</mat-label>
+      <mat-select [(ngModel)]="sortBy">
+        <mat-option value="date">Date</mat-option>
+        <mat-option value="city">Lieu</mat-option>
+        <mat-option value="name">Nom</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="actionButton">
+      <button mat-stroked-button color="primary" (click)="applyFilters()">Appliquer</button>
+      <button mat-button (click)="resetFilters()">Réinitialiser</button>
+    </div>
+    
+  </aside>
+
+  <main class="event-list">
+    <div class="header">
+      <h1>Liste des événements</h1>
+      <button mat-raised-button color="primary" (click)="goToCreateEvent()">
+        Créer un événement
+      </button>
+    </div>
+
+    <div *ngIf="filteredEvents.length === 0" class="no-events">
+      <mat-card>
+        <mat-card-content>
+          <p>Aucun événement disponible.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="grid" *ngIf="filteredEvents.length > 0">
+      <mat-card *ngFor="let event of filteredEvents" class="event-card">
+        <mat-card-header>
+          <mat-card-title>Nom de l'événement : {{ event.name }}</mat-card-title>
+          <mat-card-subtitle>
+            Lieu : {{ event.city }} &nbsp;|&nbsp;
+            Date : {{ event.start_date ? (event.start_date | date:'mediumDate') : 'Non renseigné' }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ event.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button color="accent">Voir les détails</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </main>
 </div>
+
+
+
