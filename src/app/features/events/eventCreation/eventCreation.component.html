@@ -1,0 +1,28 @@
+<div class="form-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Créer un événement</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput placeholder="Nom" name="name" [(ngModel)]="event.name" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput placeholder="Ville" name="city" [(ngModel)]="event.city" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput placeholder="Date (MM/DD/YYYY)" name="start_date" [(ngModel)]="event.start_date" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <textarea matInput placeholder="Description" name="description" [(ngModel)]="event.description"></textarea>
+        </mat-form-field>
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit">Créer</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
