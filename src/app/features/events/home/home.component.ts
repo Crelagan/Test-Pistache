@@ -27,11 +27,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.eventService.getEvents().subscribe((data) => {
-      console.log(data);
       this.events = data;
       this.applyFilters();
       this.cdr.detectChanges();
-      console.log(this.events);
     });
   }
 
@@ -57,7 +55,6 @@ export class HomeComponent implements OnInit {
   }
 
   goToCreateEvent() {
-    console.log("navigating to create event");
     this.router.navigate(['/app-create-event']);
   }
 }
